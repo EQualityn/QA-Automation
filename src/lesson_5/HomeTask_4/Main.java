@@ -21,28 +21,34 @@ public class Main {
         System.out.println("Task 3");
         String username = "username";
         String password = "password";
-        int attempts = 0;
-        while (attempts!=5){
-            System.out.println("Please, enter your name. You have " + (5-attempts) + " attempts left" );
-            String userInput = input.nextLine();
-            if (userInput.equals(username))
+
+        System.out.println("Please, enter your name.");
+        String userInput = input.next();
+        int attemptsName = 1;
+        int attemptsPass = 0;
+        boolean isNameCorrect = false;
+        while (attemptsName!=5 && attemptsPass!=5){
+            if (userInput.equals(username) || isNameCorrect)
             {
-                attempts = 0;
-                System.out.println("Please, enter your password. You have " + (5-attempts) + " attempts left\"");
-                userInput = input.nextLine();
+                isNameCorrect = true;
+                System.out.println("Please, enter your password. You have " + (5-attemptsPass) + " attempts left");
+                userInput = input.next();
                 if (userInput.equals(password))
                 {
                     System.out.println("Access granted");
                     return;
                 }
-                else {
-                    attempts++;
-                }
+                else
+                    attemptsPass++;
             }
-            else {
-                attempts++;
+            if (!isNameCorrect) {
+                System.out.println("Please, enter your name. You have " + (5 - attemptsName) + " attempts left");
+                userInput = input.next();
+                attemptsName++;
             }
+
         }
+        System.out.println("Access denied");
     }
     public static double countAvg (int size){
         double sum = 0;
