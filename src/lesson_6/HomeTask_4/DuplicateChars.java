@@ -1,4 +1,4 @@
-package lesson_6;
+package lesson_6.HomeTask_4;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class DuplicateChars {
         }
         map.forEach((c,i) -> {
             Long b = text.chars().filter(ch -> ch == c).count();
-            System.out.println("b = " + b);
+            // System.out.println("b = " + b);
             map.put(c,Integer.valueOf(b.intValue()));
         });
         /*
