@@ -13,22 +13,18 @@ public class Countries {
         for (int i = 0; i < countriesAmount; i++) {
             System.out.println("Enter city");
             city = input.nextLine();
-            while (countries.containsKey(city)) {
-                System.out.println("Input another city, please. This one already exists.");
-                city = input.nextLine();
-            }
             System.out.println("Enter country");
             country = input.nextLine();
-           /* while (countries.containsValue(country)) {
-                System.out.println("Input another country, please. This one already exists.");
-                country = input.nextLine();
-            }*/
+            if (countries.containsKey(city) && !countries.containsValue(country)) {
+                System.out.println("The "+ city+ " city moves from " + countries.get(city) +" to " + country);
+            }
             countries.put(city,country);
         }
         System.out.println("List of countries:");
         for (HashMap.Entry<String,String> entry: countries.entrySet()) {
             System.out.printf(entry.getValue()+", ");
         }
+        System.out.println();
         countries.forEach((cit,cou) -> System.out.println(cit + "\t" + cou));
         }
     }
