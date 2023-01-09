@@ -25,7 +25,7 @@ public class Countries {
             System.out.printf(entry.getValue()+", ");
         }
         System.out.println();
-        countries.forEach((cit,cou) -> System.out.println(cit + "\t" + cou));
+        countries.forEach((cit,cou) -> System.out.println(cit + "\t-\t" + cou));
         }
     }
 
